@@ -1,30 +1,24 @@
+/**
+ * This class is part of the "World of Zuul" application.
+ * 
+ * Parser类读取用户的输入并将其作为该文字游戏内的行动。
+ * 从终端读取一行输入，并分解为2个单词作为执行指令。
+ * Parser类有一些预设指令，如果用户发出的指令是系统未知的，那么它不会被执行。
+ * @author ???
+ * @version 2021.7.1
+ */
 package cn.edu.whut.sept.zuul;
 
 import java.util.Scanner;
 
-/**
- * This class is part of the "World of Zuul" application.
- * "World of Zuul" is a very simple, text based adventure game.
- *
- * This parser reads user input and tries to interpret it as an "Adventure"
- * command. Every time it is called it reads a line from the terminal and
- * tries to interpret the line as a two word command. It returns the command
- * as an object of class Command.
- *
- * The parser has a set of known command words. It checks user input against
- * the known commands, and if the input is not one of the known commands, it
- * returns a command object that is marked as an unknown command.
- *
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
- */
+
 public class Parser
 {
     private CommandWords commands;  // holds all valid command words
     private Scanner reader;         // source of command input
 
     /**
-     * Create a parser to read from the terminal window.
+     * 构造函数创建指令类和输入流.
      */
     public Parser()
     {
@@ -33,7 +27,8 @@ public class Parser
     }
 
     /**
-     * @return The next command from the user.
+     * 将输入的一行字符串拆解为2个单词并识别.
+     * @return 格式正确则返回2个单词组成的command，错误则将command首参数设为null
      */
     public Command getCommand()
     {
@@ -66,7 +61,7 @@ public class Parser
     }
 
     /**
-     * Print out a list of valid command words.
+     * 在控制台输出可用的指令.
      */
     public void showCommands()
     {
